@@ -30,3 +30,28 @@ npm i express
 Se nos crea por primera y única vez la carpeta/directorio node_modules\
 Y se nos modifica el archivo package.json configurando la nueva librería\
 Se nos crea el archivo por primera y única vez de package-lock.json (Nunca manipulamos a mano este archivo)
+
+### Las importaciones están en el directio de exportaciones
+
+### Crear una base de datos con MySQL tabla usuarios
+
+- Creamos una BD con una tabla usuarios con id nombre y email
+```
+CREATE TABLE usuarios (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(250) NOT NULL,
+    email VARCHAR(250) NOT NULL
+);
+```
+
+- Insertamos valores a la tabla
+
+```
+INSERT INTO usuarios VALUES ('Elias', 'elias@gmail.com');
+```
+
+### Instalar la librería mysql2 para hacer la conexión
+
+```
+npm i mysql2
+```
