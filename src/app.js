@@ -4,16 +4,20 @@ import connection from './database/connection.js';
 
 const app = express();
 
-const [rows] = await connection.query(
-    "SELECT * FROM usuarios"
-);
+// const [rows] = await connection.query(
+//     "SELECT * FROM usuarios"
+// );
 
-console.log(rows);
+// console.log(rows);
 
-// app.get('/', (req, res) => {
-//     res.send('Hola mundo');
-// });
+app.get('/', async (req, res) => {
+    const [rows] = await connection.query(
+        "SELECT * FROM usuarios"
+    );
 
-// app.listen(3000, () => {
-//     console.log('Servidor corriendo en http://localhost:3000');
-// });
+    res.json(rows);
+});
+
+app.listen(3000, () => {
+    console.log('Servidor corriendo en http://localhost:3000');
+});
