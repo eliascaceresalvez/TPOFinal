@@ -3,6 +3,7 @@ import cors from 'cors';
 import connection from './database/connection.js';
 
 const app = express();
+app.use(cors());
 
 // const [rows] = await connection.query(
 //     "SELECT * FROM usuarios"
