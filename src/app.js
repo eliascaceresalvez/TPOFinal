@@ -1,24 +1,18 @@
 import express from 'express';
+import connection from '../src/database/connection.js';
 import cors from 'cors';
-import connection from './database/connection.js';
+import ruterUsuario from '../src/routes/usuarios.routes.js';
+import 'dotenv/config';
 
 const app = express();
 app.use(cors());
 
-// const [rows] = await connection.query(
-//     "SELECT * FROM usuarios"
-// );
+const variable = process.env.VALOR_DATO;
+console.log(`El valor de la variable de entorno es ${variable}`);
+const PORT = process.env.PORT;
 
-// console.log(rows);
+app.use('/usuarios', ruterUsuario);
 
-app.get('/', async (req, res) => {
-    const [rows] = await connection.query(
-        "SELECT * FROM usuarios"
-    );
-
-    res.json(rows);
-});
-
-app.listen(3000, () => {
-    console.log('Servidor corriendo en http://localhost:3000');
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
