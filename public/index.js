@@ -1,4 +1,3 @@
-console.log("Hola mundo desde index.js");
 let dataPrueba;
 const btn = document.getElementById('btn');
 const box = document.getElementById('box');
@@ -9,8 +8,6 @@ const peticionPrincipal = async() => {
     dataPrueba = await response.json();
     
     console.log(dataPrueba);
-
-    
 }
 
 btn.addEventListener('click', () => {

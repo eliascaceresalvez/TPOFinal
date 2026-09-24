@@ -1,14 +1,9 @@
 import express from 'express';
 import connection from '../database/connection.js';
+import {getUsuarios} from '../controllers/usuarios.controller.js';
 
 const router = express.Router();
 
-router.get('/', async (req,res) => {
-    const [rows] = await connection.query(
-        "SELECT * FROM usuarios"
-    );
-
-    res.json(rows);
-});
+router.get('/', getUsuarios);
 
 export default router;
